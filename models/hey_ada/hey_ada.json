@@ -2,9 +2,10 @@
   "type": "micro",
   "wake_word": "hey ada",
   "author": "Kody Kochaver",
-  "model": "stream_state_internal_quant.tflite",
-  "trained_languages": ["en"],
+  "website": "",
+  "model": "hey_ada.tflite",
   "version": 2,
+  "trained_languages": ["en"],
   "micro": {
     "probability_cutoff": 0.39,
     "sliding_window_size": 5,
