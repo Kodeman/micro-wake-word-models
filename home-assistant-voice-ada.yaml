@@ -1719,15 +1719,11 @@ micro_wake_word:
     gain_factor: 4
   stop_after_detection: false
   models:
-    - model: https://github.com/kahrendt/microWakeWord/releases/download/okay_nabu_20241226.3/okay_nabu.json
-      id: okay_nabu
-    - model: hey_jarvis
-      id: hey_jarvis
-    - model: hey_mycroft
-      id: hey_mycroft
-    # ── Custom: Hey Ada ──
+    # ── Primary: Hey Ada ──
     - model: https://raw.githubusercontent.com/Kodeman/micro-wake-word-models/main/models/hey_ada/hey_ada.json
       id: hey_ada
+    - model: hey_jarvis
+      id: hey_jarvis
     - model: https://github.com/kahrendt/microWakeWord/releases/download/stop/stop.json
       id: stop
       internal: true
