@@ -1,15 +1,10 @@
 {
-  "type": "micro",
-  "wake_word": "hey ada",
-  "author": "Kody Kochaver",
+  "wake_word": "hey_ada",
+  "author": "Kodeman",
+  "website": "https://github.com/Kodeman/micro-wake-word-models",
   "model": "hey_ada.tflite",
   "version": 2,
-  "trained_languages": ["en"],
-  "micro": {
-    "probability_cutoff": 0.39,
-    "sliding_window_size": 5,
-    "feature_step_size": 10,
-    "tensor_arena_size": 22860,
-    "minimum_esphome_version": "2024.7.0"
-  }
+  "micro_wake_word_version": 2,
+  "description": "Hey Ada wake word model for Home Assistant Voice PE",
+  "trained_languages": ["en"]
 }
