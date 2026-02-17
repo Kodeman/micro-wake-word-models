@@ -1722,6 +1722,16 @@ micro_wake_word:
     # ── Primary: Hey Ada ──
     - model: https://raw.githubusercontent.com/Kodeman/micro-wake-word-models/main/models/hey_ada/hey_ada.json
       id: hey_ada
+    # ── Required by upstream sensitivity selector lambda ──
+    - model: okay_nabu
+      id: okay_nabu
+      internal: true
+    - model: hey_jarvis
+      id: hey_jarvis
+      internal: true
+    - model: hey_mycroft
+      id: hey_mycroft
+      internal: true
     - model: https://github.com/kahrendt/microWakeWord/releases/download/stop/stop.json
       id: stop
       internal: true
