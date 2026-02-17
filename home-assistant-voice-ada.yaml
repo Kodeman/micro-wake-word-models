@@ -1770,29 +1770,20 @@ micro_wake_word:
                                 wake_word: !lambda return wake_word;
 
 select:
+  # Override upstream sensitivity selector (which references okay_nabu/hey_jarvis/hey_mycroft)
   - platform: template
     name: "Wake word sensitivity"
-    optimistic: true
-    initial_option: Slightly sensitive
-    restore_value: true
-    entity_category: config
-    options:
-      - Slightly sensitive
-      - Moderately sensitive
-      - Very sensitive
-    on_value:
-      # Sets specific wake word probabilities computed for each particular model
-      # Note probability cutoffs are set as a quantized uint8 value, each comment has the corresponding floating point cutoff
-      # False Accepts per Hour values are tested against all units and channels from the Dinner Party Corpus.
+    on_value: !remove
+    set_action:
       # Cutoffs for hey_ada model (step 3500 best: 1.45 FAPH, 97.5% recall@0FP, cutoff 0.88)
-      lambda: |-
-        if (x == "Slightly sensitive") {
-          id(hey_ada).set_probability_cutoff(224);      // 0.88 -> ~1.45 FAPH (best checkpoint default)
-        } else if (x == "Moderately sensitive") {
-          id(hey_ada).set_probability_cutoff(204);      // 0.80
-        } else if (x == "Very sensitive") {
-          id(hey_ada).set_probability_cutoff(176);      // 0.69
-        }
+      - lambda: |-
+          if (x == "Slightly sensitive") {
+            id(hey_ada).set_probability_cutoff(224);      // 0.88 -> ~1.45 FAPH (best checkpoint default)
+          } else if (x == "Moderately sensitive") {
+            id(hey_ada).set_probability_cutoff(204);      // 0.80
+          } else if (x == "Very sensitive") {
+            id(hey_ada).set_probability_cutoff(176);      // 0.69
+          }
 
 voice_assistant:
   id: va
