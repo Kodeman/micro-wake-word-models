@@ -1,22 +1,5 @@
-# Hey Ada wake word package for Home Assistant Voice PE
-# Overrides the upstream micro_wake_word models to use hey_ada as primary
-# Upstream models (okay_nabu, hey_jarvis, hey_mycroft) kept as internal to satisfy sensitivity selector
-
+# Hey Ada wake word model for Home Assistant Voice PE
 micro_wake_word:
   models:
-    # ── Primary: Hey Ada ──
     - model: https://raw.githubusercontent.com/Kodeman/micro-wake-word-models/main/models/hey_ada/hey_ada.json
       id: hey_ada
-    # ── Required by upstream sensitivity selector lambda ──
-    - model: okay_nabu
-      id: okay_nabu
-      internal: true
-    - model: hey_jarvis
-      id: hey_jarvis
-      internal: true
-    - model: hey_mycroft
-      id: hey_mycroft
-      internal: true
-    - model: https://github.com/kahrendt/microWakeWord/releases/download/stop/stop.json
-      id: stop
-      internal: true
